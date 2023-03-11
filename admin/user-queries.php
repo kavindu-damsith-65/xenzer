@@ -89,12 +89,11 @@
     <div class="container-fluid" id="main-contain">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h4 class="mb-4">USER MESSAGES </h4>
+                <h4 class="mb-4">DOCTOR DETAILS</h4>
 
                 <div class="class border-0 shadow-sm mb-4">
                     <div class="card-body">
                         <div class="text-end mb-4">
-                            <a href="?seen=all" class="btn btn-dark rounded-pill shadow-none btn-ark all reasm"><i class="bi bi-check-all"></i> Mark all read</a>
                             <a href="?del=all" class="btn btn-danger rounded-pill shadow-none btn-ark all reasm"><i class="bi bi-trash3-fill"></i> Delete all</a>
                         </div>
                         <div class="table-responsive-md" style="height: 450px; overflow-y: scroll">
@@ -102,12 +101,12 @@
                                 <thead class="sticky-top">
                                     <tr class="bg-dark text-light">
                                         <th scope="col">#</th>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">Doctor's Name</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Date and Time</th>
+                                        <th scope="col">Password</th>
+                                        <th scope="col">Contact Number</th>
+                                        <th scope="col">Last Login</th>
                                         <th scope="col">Action</th>
-                                        <th scope="col" width="20%">Subject</th>
-                                        <th scope="col" width="20%">Message</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -118,23 +117,19 @@
 
                                         while($row = mysqli_fetch_assoc($data)){
                                             $seen='';
-                                            if($row['seen']!=1){
-                                                $seen = "<a href='?seen=$row[id]' class='btn btn-sm rounded-pill btn-primary'>Mark as read</a>";
-
+                                            if($row['seen']==0){
+                                                $seen.="<a href='?del=$row[id]' class='btn btn-sm rounded-pill btn-danger mt-2'>Delete</a>";
                                             }
-                                           else{
-                                            $seen.="<a href='?del=$row[id]' class='btn btn-sm rounded-pill btn-danger mt-2'>Delete</a>";
-                                           }
+
                                             echo"
                                                 <tr>
                                                     <td>$i</td>
                                                     <td>$row[name]</td>
                                                     <td>$row[email]</td>
+                                                    <td>$row[email]</td>
+                                                    <td>$row[contact]</td>
                                                     <td>$row[date]</td>
                                                     <td><span style='width:120px'>$seen</span></td>
-                                                    <td>$row[subject]</td>
-                                                    <td>$row[message]</td>
-
                                                 </tr>
                                             ";
                                             $i++;

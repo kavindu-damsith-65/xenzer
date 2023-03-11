@@ -1,5 +1,7 @@
     <?php
         // session_start();
+        // require('Inc/dash_connect.php');
+        require_once('db_config.php');
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -22,7 +24,7 @@
                         <li class="nav-item admin-name-circle">
                             <a class="nav-link admin-name second-text fw-bold" href="settings.php" id="navbarDropdown"
                                 role="button">
-                                <i class="bi bi-person-circle me-2"></i><span id="admin_name">Malitha Prabhashana</span>
+                                <i class="bi bi-person-circle me-2"></i><span id="admin_name"></span>
                             </a>
                         </li>
                     </ul>
@@ -37,19 +39,19 @@
                 <h4>ADMIN PANEL</h4>
             </div>
             <ul class="nav flex-column">
-                <li class="nav-item ">
+                <!-- <li class="nav-item ">
                     <a class="nav-link  text-white" aria-current="page" href="dashbord.php">Dashboard</a>
-                </li>
+                </li> -->
                 <li class="nav-item ">
-                    <a class="nav-link  text-white" href="user-queries.php">User Messages 
+                    <a class="nav-link  text-white" href="user-queries.php">Doctor Details 
                         <?php
-                     $data = mysqli_query($con,"SELECT COUNT(id) as count FROM user_queries WHERE seen=0");
+                     $data = mysqli_query($con, "SELECT COUNT(id) as count FROM user_queries WHERE seen=0");
                      $unReadMessages=($count = mysqli_fetch_assoc($data))?$count['count']:'0';
                      ?>
-                        <spa class="badge badge-secondary unread" id="unread"> <?php echo $unReadMessages?></span>
+                        <span class="badge badge-secondary unread" id="unread"> <?php echo $unReadMessages?></span>
                     </a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item">
                     <?php
                         $Q_ordered_rooms = 'SELECT roomId FROM single_room';
                         $Data_ordered_rooms = mysqli_query($con,$Q_ordered_rooms);
@@ -62,12 +64,7 @@
                             $roomCount+=mysqli_num_rows($users);
                         }
                     ?>
-                    <a class="nav-link  text-white" href="rooms.php">Rooms 
-                    <spa class="badge badge-secondary unread" id="unread"><?php echo $roomCount?></span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="settings.php" tabindex="-1" aria-disabled="true">Settings</a>
+                    <a class="nav-link text-white" href="addDoctor.php">Add a Doctor</a>
                 </li>
             </ul>
 

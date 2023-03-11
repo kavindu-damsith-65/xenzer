@@ -4,7 +4,7 @@
 
   session_start();
     if ((isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true)) {
-      redirect('dashbord.php');
+      redirect('user-queries.php');
     }
 ?>
 <!DOCTYPE html>
@@ -67,7 +67,7 @@
       $correct_name = $_SESSION['correct_name'];
       $_SESSION['current_date'] =  date('d F, Y(l)');
 
-      redirect('dashbord.php');
+      redirect('user-queries.php');
     } else {
       alert('error', 'Login failed - Invalid Credentials!');
     }

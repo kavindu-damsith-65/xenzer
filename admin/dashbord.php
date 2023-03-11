@@ -1,8 +1,9 @@
 <?php
 
+// require('Inc/dash_connect.php');
 require('Inc/essentials.php');
 adminLogin();
-require('Inc/dash_connect.php');
+
 
 ?>
 
@@ -79,7 +80,7 @@ require('Inc/dash_connect.php');
                                 <div
                                     class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                     <div>
-                                        <h3 class="fs-2" id="no_users"><?php echo $no_users?></h3>
+                                        <h3 class="fs-2" id="no_users"><?php //echo $no_users?></h3>
                                         <p class="fs-5">Total Users</p>
                                     </div>
                                     <i
@@ -104,7 +105,7 @@ require('Inc/dash_connect.php');
                                 <div
                                     class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                     <div>
-                                        <h3 class="fs-2" id="no_admin"><?php echo $no_admins?></h3>
+                                        <h3 class="fs-2" id="no_admin"><?php //echo $no_admins?></h3>
                                         <p class="fs-5">Admin Count</p>
                                     </div>
                                     <i
