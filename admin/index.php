@@ -30,11 +30,22 @@
       top: 25;
       right: 25px;
     }
+
+    body{
+      background: no-repeat linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7) ), url('../images/adminImg.webp') center;
+      background-size: cover;
+      /* background: url('./images/adminImg.webp'); */
+    }
+
+    .login-form {
+      border: 2px solid #fff;
+      border-radius: 6px;
+    }
   </style>
 </head>
 
 <body class="bg-light">
-  <div class="login-form text-center bg-white shadow  overflow-none">
+  <div class="login-form text-center bg-white shadow overflow-none">
     <form method="POST">
 
       <h4 class="text-white bg-dark py-3"> XENZER <br> ADMIN LOGIN PANEL</h4>

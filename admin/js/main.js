@@ -35,29 +35,6 @@ const passwordCheck=[
     ];
 
 
-function userLogIn(){
-    let userData={uEmail:userEmailLog.value,
-                  uPassword:passwordLog.value}
-
-    if(!enterUserData(userData,"logIn")){
-        passwordLogLabel.innerHTML="Incorrect UserName or Password";
-        passwordLog.value="";
-    }else{
-        passwordLogLabel.innerHTML="";
-    }
-}    
-
-function userLogOut(){
-    $.ajax({  
-        type:"POST",  
-        url:"admin/Inc/dataEnter.php",  
-        data:{enterData:"logOut"},  
-        success:function(Data){  
-                window.location.href ="index.php";
-        }  
-     });
-}
-
 
 function submitData(){
     var isValied=true;

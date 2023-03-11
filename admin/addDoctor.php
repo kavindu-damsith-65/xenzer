@@ -1,8 +1,6 @@
 <?php
 require('Inc/essentials.php');
 adminLogin();
-
-    
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +17,14 @@ adminLogin();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="./CSS/backend.css" />
-    <!-- <script src="../Js/jquery.js"></script> -->
-    <script src="js/main.js"></script>
+
+    <style>
+        .modal-content {
+            width: calc(125%);
+            margin-top: 40px;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,22 +34,18 @@ adminLogin();
 
         <!------------------- Modal-------------------------->
         <div class=" fade show" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" style="display: block" aria-hidden="true">
+            aria-labelledby="staticBackdropLabel" style="display: block;" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content" style=" background-color:none">
 
                     <!-- <form  > -->
                     <div class="modal-header">
                         <h5 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
                             <i class="bi bi-person-lines-fill fs-3 me-2"></i>ADD A DOCTOR
                         </h5>
-                        <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                    
                     </div>
                     <div class="modal-body">
-                        <span class="badge bg-light text-dark mb-3 text-wrap lh-base">
-                            Note: Your details must match with your ID. that will be required during check-in.
-                        </span>
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6 ps-0 mb-3">
@@ -77,20 +77,20 @@ adminLogin();
                                         style="font-size: 9px;color:red; "></label>
                                     <input type="password" id="passConform" class="form-control shadow-none">
                                 </div>
-                                <div class="text-center my-1">
-                                    <button type="submit" class=" btn btn-dark shadow-none" onclick="submitData();">
-                                        Register
-                                    </button>
-                                </div>
+                                
 
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-
+                    <div class="modal-footer d-flex justify-content-center">
+                            <button type="submit" class=" btn btn-primary shadow-none" onclick="submitData();">
+                                Add
+                            </button>
                     </div>
                     <!-- </form> -->
 
                 </div>
             </div>
         </div>
+        
+            <script src="js/main.js"></script>

@@ -29,7 +29,7 @@
                         </li>
                     </ul>
                 </div>
-                <a href="logout.php" class="logout btn btn-light btn-sm">LOG OUT</a>
+                <a href="logout.php" class="logout btn btn-danger btn-sm">LOG OUT</a>
             </div>
 
         </div>
