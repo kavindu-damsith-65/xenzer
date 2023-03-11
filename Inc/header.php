@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="./CSS/backend.css" />
+    
+<link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
     <script src="./Js/jquery.js"></script>
 </head>
 
@@ -47,14 +49,17 @@
                                 <a class="nav-link" href="room.php">Doctors</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="facilities.php">My Appoinments</a>
+                                <a class="nav-link" href="myReports.php">My Reports</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="myAppointments.php">My Appoinments</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact-us.php">Contact Us</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="About.php">About-Us</a>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="d-flex justify-content-end" style="padding-left:30px;">
                             <?php if(!$userLoggedIn){?>

@@ -57,3 +57,23 @@
             die("Query cannot be executed - Update");
         }
     }
+
+
+function normalSelect($query) {
+        $con = $GLOBALS['con'];
+        if ($con->connect_errno) {
+            echo "Failed to connect to MySQL: " . $con->connect_error;
+            exit();
+        }
+    
+        $result = $con->query($query);
+    
+        if ($result) {
+             return $result;
+        } else {
+            echo "Error executing query: " . $con->error;
+        }
+    
+        $con->close();
+    }
+    
