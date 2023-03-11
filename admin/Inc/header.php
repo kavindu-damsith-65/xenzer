@@ -45,7 +45,7 @@
                 <li class="nav-item ">
                     <a class="nav-link  text-white" href="user-queries.php">Doctor Details 
                         <?php
-                     $data = mysqli_query($con, "SELECT COUNT(id) as count FROM user_queries WHERE seen=0");
+                     $data = mysqli_query($con, "SELECT COUNT(id) as count FROM user_queries");
                      $unReadMessages=($count = mysqli_fetch_assoc($data))?$count['count']:'0';
                      ?>
                         <span class="badge badge-secondary unread" id="unread"> <?php echo $unReadMessages?></span>
@@ -53,16 +53,16 @@
                 </li>
                 <li class="nav-item">
                     <?php
-                        $Q_ordered_rooms = 'SELECT roomId FROM single_room';
-                        $Data_ordered_rooms = mysqli_query($con,$Q_ordered_rooms);
-                        $current_date = date('Y-m-d'); 
-                        $roomCount=0;
-                        while($room_ordered = $Data_ordered_rooms->fetch_assoc()){
-                            $no = $room_ordered['roomId'];
-                            $roomId = 'room_'.$no;
-                            $users = mysqli_query($con,'SELECT * FROM '.$roomId.' WHERE checkOut>"'.$current_date.'"');
-                            $roomCount+=mysqli_num_rows($users);
-                        }
+                        // $Q_ordered_rooms = 'SELECT roomId FROM single_room';
+                        // $Data_ordered_rooms = mysqli_query($con,$Q_ordered_rooms);
+                        // $current_date = date('Y-m-d'); 
+                        // $roomCount=0;
+                        // while($room_ordered = $Data_ordered_rooms->fetch_assoc()){
+                        //     $no = $room_ordered['roomId'];
+                        //     $roomId = 'room_'.$no;
+                        //     $users = mysqli_query($con,'SELECT * FROM '.$roomId.' WHERE checkOut>"'.$current_date.'"');
+                        //     $roomCount+=mysqli_num_rows($users);
+                        // }
                     ?>
                     <a class="nav-link text-white" href="addDoctor.php">Add a Doctor</a>
                 </li>

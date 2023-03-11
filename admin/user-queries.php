@@ -117,9 +117,9 @@
 
                                         while($row = mysqli_fetch_assoc($data)){
                                             $seen='';
-                                            if($row['seen']==0){
-                                                $seen.="<a href='?del=$row[id]' class='btn btn-sm rounded-pill btn-danger mt-2'>Delete</a>";
-                                            }
+                                            
+                                            $seen ="<a href='?del=$row[id]' class='btn btn-sm rounded-pill btn-danger mt-2'>Delete</a>";
+                                          
 
                                             echo"
                                                 <tr>
