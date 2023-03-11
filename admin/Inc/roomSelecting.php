@@ -21,20 +21,20 @@ function getData($data,$con,$limit,$orderBy){
             //     $selected=FALSE;
             //  }
             //  $res=select("SELECT `roomId` FROM ".$newRow['singleRoom']." WHERE checkIn<? AND checkOut>?",$vars,"ss");
-            $newsql="SELECT * FROM ROOM_".$row['roomId']." WHERE NOT((checkIn>'".$data['checkInDate']."' AND checkIn>'".$data['checkOutDate']."') OR (checkOut<'".$data['checkOutDate']."' AND checkOut<'".$data['checkInDate']."'))";
-            $Room=$con->query($newsql);
-            if($Room!=FALSE && $roomvalied=mysqli_fetch_assoc($Room)){
+            $newsql="SELECT * FROM DOCTOR_".$row['id']." WHERE NOT((checkIn>'".$data['checkInDate']."' AND checkIn>'".$data['checkOutDate']."') OR (checkOut<'".$data['checkOutDate']."' AND checkOut<'".$data['checkInDate']."'))";
+            $Doctor=$con->query($newsql);
+            if($Doctor!=FALSE && $roomvalied=mysqli_fetch_assoc($Doctor)){
                 $selected=FALSE;
             }
            
         }
-        if($selected){array_push($arr,$row['roomId']);}
+        if($selected){array_push($arr,$row['id']);}
     }
     $arr=join(",",$arr);
-    $query="SELECT * FROM rooms WHERE roomId IN($arr) ".$orderBy." ".$limit;
+    $query="SELECT * FROM user_queries WHERE id IN($arr) ".$orderBy." ".$limit;
      
-    $filterRooms=$con->query($query);
-   return $filterRooms;
+    $filterDoctors=$con->query($query);
+   return $filterDoctors;
   }
 }
 
@@ -43,7 +43,7 @@ function getData($data,$con,$limit,$orderBy){
 if(isset($_POST['selector'])){
     if($_POST['selector']=="doctorFilterMainPage"){
     $data=$_POST['data'];
-    $filterRooms=getData($data,$con,"LIMIT 6","ORDER BY name ASC");
+    $filterRooms=getData($data,$con,"LIMIT 9","ORDER BY name ASC");
     if($filterRooms!=NULL){
     while($filterRoom=mysqli_fetch_assoc($filterRooms)){
         ?>
