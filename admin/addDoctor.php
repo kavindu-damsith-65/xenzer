@@ -41,7 +41,7 @@ adminLogin();
                     <!-- <form  > -->
                     <div class="modal-header">
                         <h5 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
-                            <i class="bi bi-person-lines-fill fs-3 me-2"></i>ADD A DOCTOR
+                            <i class="fa fa-user-md fs-3 me-2"></i>ADD A DOCTOR
                         </h5>
                     
                     </div>
