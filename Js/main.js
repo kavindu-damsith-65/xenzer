@@ -3,7 +3,7 @@ var email=document.getElementById("email");
 var phoneNumber=document.getElementById("phoneNumber");
 var picture=document.getElementById("picture");
 var address=document.getElementById("address");
-var pinCode=document.getElementById("pinCode");
+// var pinCode=document.getElementById("pinCode");
 var dateOfBirth=document.getElementById("dateOfBirth");
 var password=document.getElementById("password");
 var passConform=document.getElementById("passConform");
@@ -23,7 +23,7 @@ const pin=/\d+/;
 const arr=[[name,userName,"Name Invalied"],
 [Email,email,"Invalied Email",email],
 [phone,phoneNumber,"Invalied Phone Number"],
-[pin,pinCode,"Invalied Pin Code"]
+// [pin,pinCode,"Invalied Pin Code"]
 ];
 
 const passwordCheck=[
@@ -128,7 +128,7 @@ function submitData(){
                    uPicture:"#",
                    uAddress:address.value,
                    uDateOfBirth:dateOfBirth.value,
-                   uPinCode:pinCode.value,
+                //    uPinCode:pinCode.value,
                    uPassword:password.value
                }
     enterUserData(userData,"register");    

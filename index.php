@@ -5,9 +5,9 @@
 <div class="container-fluid">
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="./Images/slider2.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="./Images/slider1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="./Images/slider3.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./Images/image1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./Images/image2.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./Images/image3.jpg" alt=""></div>
         </div>
 
         <div class="swiper-pagination"></div>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-lg-1 mb-3">
                     <button class="btn text-white shadow-none custom-bg"
-                        onclick="findRooms('roomFilterMainPage');">Submit</button>
+                        onclick="findRooms('doctorFilterMainPage');">Submit</button>
                 </div>
             </div>
             <!-- </form> -->
@@ -54,19 +54,12 @@
 <!------------check booking availability form - end--------->
 
 <div class="container">
-    <div class="row" id="roomFilterMainPage" data-aos="fade-up">
+    <div class="row" id="doctorFilterMainPage" data-aos="fade-up">
 
     </div>
 </div>
 
-<!-----------------Rooms---------------->
-<div data-aos="slide-right">
-    <h2 class="mt-5 pt-5 mb-4 text-center fw-light">OUR ROOMS</h2>
-    <div class="container">
-        <div class="row" id="roomFilterMainPageSecond">
-        </div>
-    </div>
-</div>
+
 
 
 <!----------------------OUR-FACILITIES--------------------->

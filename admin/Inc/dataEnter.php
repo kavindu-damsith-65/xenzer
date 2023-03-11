@@ -2,11 +2,11 @@
 require('db_config.php');
 session_start();
 if ($_POST['enterData']=='register'){
-    $sql="INSERT INTO `user_details`(`userName`, `email`, `phoneNumber`, `address`, `pinCode`, `password`, `dateOfBirth`) 
-    VALUES (?,?,?,?,?,?,?)";
+    $sql="INSERT INTO `user_details`(`userName`, `email`, `phoneNumber`, `address`, `password`, `dateOfBirth`) 
+    VALUES (?,?,?,?,?,?)";
     $user=filteration($_POST['user']);
-    $values=[$user['uName'],$user['uEmail'],$user['uPhone'],$user['uAddress'],$user['uPinCode'],$user['uPassword'],$user['uDateOfBirth']];
-    enterData ($sql,$values,"ssisiss",$user);
+    $values=[$user['uName'],$user['uEmail'],$user['uPhone'],$user['uAddress'],$user['uPassword'],$user['uDateOfBirth']];
+    enterData ($sql,$values,"ssisss",$user);
    
 }
 

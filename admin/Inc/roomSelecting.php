@@ -7,12 +7,12 @@ $userLoggedIn=FALSE;
 }
 
 function getData($data,$con,$limit,$orderBy){
-    $reseve = select("SELECT * FROM `rooms` WHERE `adults`>=? AND `childers`>=?",[$data['adults'],$data['children']], "ii");
+    $reseve = select("SELECT * FROM `user_queries` WHERE  `name` LIKE '%?%'",[$data['docterName']], "s");
     $arr=[];
     if($reseve->num_rows!=0){
       while ($row = mysqli_fetch_assoc($reseve)) {
         $selected=TRUE;
-        $res=select("SELECT singleRoom FROM `single_room` WHERE roomId=?",[$row['roomId']],"i");
+        $res=select("SELECT singleDoctor FROM `single_doctor` WHERE doctorId=?",[$row['id']],"i");
 
         if($res->num_rows!=0 && $data['checkInDate']!="" && $data['checkOutDate']!=""){
              $newRow=mysqli_fetch_assoc($res);
@@ -41,9 +41,9 @@ function getData($data,$con,$limit,$orderBy){
 
 
 if(isset($_POST['selector'])){
-    if($_POST['selector']=="roomFilterMainPage"){
+    if($_POST['selector']=="doctorFilterMainPage"){
     $data=$_POST['data'];
-    $filterRooms=getData($data,$con,"LIMIT 6","ORDER BY adults ASC,childers ASC,rating DESC");
+    $filterRooms=getData($data,$con,"LIMIT 6","ORDER BY name ASC");
     if($filterRooms!=NULL){
     while($filterRoom=mysqli_fetch_assoc($filterRooms)){
         ?>
@@ -182,81 +182,6 @@ if(isset($_POST['selector'])){
   }
 
 
-
-  if($_POST['selector']=="roomFilterMainPageSecond"){
-    $data=$_POST['data'];
-    $filterRooms=getData($data,$con,"LIMIT 6","ORDER BY rating DESC");
-    if($filterRooms!=NULL){
-    while($filterRoom=mysqli_fetch_assoc($filterRooms)){
-?>
-
-<div class="col-lg-4 col-md-4 d-flex justify-content-center my-3">
-    <div class="card border-0" style="width: 18rem;">
-        <img src="<?php echo $filterRoom['image']?>" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5><?php echo $filterRoom['name']?></h5>
-            <h6 class="mb-4 fw-normal">Rs.<?php echo $filterRoom['price']?>.00 per night</h6>
-            <div class="features mb-4">
-                <h6 class="mb-1">Features</h6>
-                <?php  foreach(explode(",",$filterRoom['fetures']) as $feture){
-                    echo '<span class="badge rounded-pill bg-light text-dark text-wrap">'.$feture.'</span>';
-                    }?>
-            </div>
-
-            <div class="facilities mb-4">
-                <h6 class="mb-1">Facilites</h6>
-                <?php  foreach(explode(",",$filterRoom['facilites']) as $feture){
-                    echo '<span class="badge rounded-pill bg-light text-dark text-wrap">'.$feture.'</span>';
-                    }?>
-            </div>
-
-            <div class="guest mb-4">
-                <h6 class="mb-1">Guest</h6>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">
-                    <?php echo $filterRoom['adults']?> Adults
-                </span>
-                <span class="badge rounded-pill bg-light text-dark text-wrap">
-                    <?php echo $filterRoom['childers']?> Children
-                </span>
-
-            </div>
-
-            <div class="Rating mb-4">
-                <h6 class="mb-1">Rating</h6>
-                <span class="badge rounded-pill bg-light">
-                    <?php for($i=0;$i<$filterRoom['rating'];$i++){
-                            echo' <i class="bi bi-star-fill text-warning"></i>';
-                    }?>
-                </span>
-
-            </div>
-            <div class="d-flex justify-content-evenly">
-                <a href="<?php 
-                $link="roomId=".$filterRoom['roomId']."&checkIn=".$data['checkInDate']."&checkOut=".$data['checkOutDate'];
-                echo ($userLoggedIn)?"singleRoom.php?$link":"";
-                ?>
-                " class="btn btn-sm text-white custom-bg shadow-none"
-                    <?php echo ($userLoggedIn)?"":'data-bs-toggle="modal" data-bs-target="#LoginModal"'?>>Book Now</a>
-
-                <a href="<?php 
-                $link="roomId=".$filterRoom['roomId']."&checkIn=".$data['checkInDate']."&checkOut=".$data['checkOutDate'];
-                echo ($userLoggedIn)?"singleRoom.php?$link":"";
-                ?>
-                " class="btn btn-sm btn-outline-dark  shadow-none"
-                    <?php echo ($userLoggedIn)?"":'data-bs-toggle="modal" data-bs-target="#LoginModal"'?>>Read More</a>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<?php
-    }
-  }
-  echo'<div class="col-lg-12 text-center mt-5">
-            <a href="room.php?" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Rooms..</a>
-         </div>';
-   }  
 }  
 ?>
 

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XENZER</title>
+    <link rel="icon" type="image/png" href="Images/mainlogo.png"/>
     <?php require('./Inc/links.php') ?>
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
@@ -43,10 +44,10 @@
                                 <a class="nav-link" href="index.php">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="room.php">Rooms</a>
+                                <a class="nav-link" href="room.php">Doctors</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="facilities.php">Facilities</a>
+                                <a class="nav-link" href="facilities.php">My Appoinments</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact-us.php">Contact Us</a>
@@ -118,14 +119,15 @@
                                     <textarea id="address" class="form-control shadow-none" rows="1"></textarea>
                                 </div>
                                 <div class="col-md-6 ps-0 mb-3">
-                                    <label class="form-label">Pincode</label>
-                                    <input type="number" id="pinCode" class="form-control shadow-none">
-                                </div>
-                                <div class="col-md-6 p-0 mb-3">
+                                    <!-- <label class="form-label">Pincode</label>
+                                    <input type="number" id="pinCode" class="form-control shadow-none"> -->
                                     <label class="form-label">Date of birth</label>
                                     <label id="dateOfBirthLabel" class="form-label"
                                         style="font-size: 12px;color:red; "></label>
                                     <input type="date" id="dateOfBirth" class="form-control shadow-none">
+                                </div>
+                                <div class="col-md-6 p-0 mb-3">
+                                   
                                 </div>
                                 <div class="col-md-6 ps-0 mb-3">
                                     <label class="form-label">Password</label>

@@ -1,12 +1,12 @@
 var checkIn = document.getElementById('checkIn');
 var checkOut = document.getElementById('checkOut');
-var numAdult = document.getElementById('adult');
-var numChildren = document.getElementById('children');
+var docterName = document.getElementById('docterName');
+
 var numRooms = 0;
 $(document).ready(function () {
-    findRooms("roomFilterRoomPage");
-    findRooms("roomFilterMainPage");
-    findRooms("roomFilterMainPageSecond", random = true);
+    findDoctors("roomFilterRoomPage");
+
+    findDoctors("doctorFilterMainPage");
 
 
 });
@@ -17,17 +17,17 @@ function scroolLoader() {
     var contentHeight = roomFilterRoomPage.offsetHeight;
     if (window.pageYOffset + window.innerHeight >= contentHeight) {
         numRooms += 2;
-        findRooms("roomFilterRoomPage", numRooms, append = true);
+        findDoctors("roomFilterRoomPage", numRooms, append = true);
     }
 }
 
 //  find rooms from database
-function findRooms(section, numrooms = 0, append = false, random = false) {
+function findDoctors(section, numrooms = 0, append = false, random = false) {
     let Data = {
         checkInDate: (random) ? "" : checkIn.value,
         checkOutDate: (random) ? "" : checkOut.value,
-        children: (random) ? "" : numChildren.value,
-        adults: (random) ? "" : numAdult.value,
+        docterName: (random) ? "" : docterName.value,
+      
         offset: (random) ? "" : numrooms
     };
     if (append) {
