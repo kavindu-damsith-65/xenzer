@@ -1,13 +1,13 @@
 <?php
     require('Inc/essentials.php');
     include_once 'Inc/db_config.php';
-    adminLogin();
+    drLogin();
 
     if(isset($_GET['seen'])){
         
         $frm_data = filteration($_GET);
         if($frm_data['seen']=='all'){
-            $q_unread = 'SELECT * FROM user_queries';
+            $q_unread = 'SELECT * FROM appointment';
             $data_unread = mysqli_query($con,$q_unread);
 
             while($unread = $data_unread->fetch_assoc()){
@@ -15,14 +15,15 @@
                 if($unread['seen'] == 0){
                     $que = "UPDATE user_queries SET seen=1 WHERE id='$id'";
                     $unread_all_update = mysqli_query($con,$que);
-                    alert('success','Marked as read all');
+                    echo '<h2>Completed</h2>';
+                    // alert('success','Marked as read all');
                 }
             }
             redirect('user-queries.php');
 
         }
         else{
-            $q = "UPDATE `user_queries` SET `seen`=? WHERE `id`=?";
+            $q = "UPDATE `appointment` SET `seen`=? WHERE `id`=?";
             $values = [1,$frm_data['seen']];
 
             if(update($q,$values,'ii')){
@@ -38,7 +39,7 @@
         
         $frm_data = filteration($_GET);
         if($frm_data['del']=='all'){
-            $q = "DELETE FROM `user_queries`";
+            $q = "DELETE FROM `appointment`";
             
             
             if(mysqli_query($con,$q)){
@@ -52,7 +53,7 @@
         else{
             $values = [$frm_data['del']];
             $a = $values['0'];
-            $q = "DELETE FROM user_queries WHERE id='$a'";
+            $q = "DELETE FROM appointment WHERE id='$a'";
             $del = mysqli_query($con,$q);
             
 
@@ -101,34 +102,40 @@
                                 <thead class="sticky-top">
                                     <tr class="bg-dark text-light">
                                         <th scope="col">#</th>
-                                        <th scope="col">Doctor's Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Password</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Time</th>
+                                        <th scope="col">User Name</th>
                                         <th scope="col">Contact Number</th>
-                                        <th scope="col">Last Login</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $q = "SELECT * FROM user_queries";
-                                        $data = mysqli_query($con,$q);
+                                        $q = "SELECT * FROM appointment";
+                                        $data = mysqli_query($con, $q);
                                         $i=1;
 
+                                        $q_user = "SELECT * FROM user_details";
+                                        $user_data = mysqli_query($con, $q_user);
+
                                         while($row = mysqli_fetch_assoc($data)){
+                                            $row2 = mysqli_fetch_assoc($user_data);
                                             $seen='';
-                                            
-                                            $seen ="<a href='?del=$row[id]' class='btn btn-sm rounded-pill btn-danger mt-2'>Delete</a>";
-                                          
+
+                                            if($row['seen'] != 1){
+                                                $seen = "<a href='?seen=$row[id]' class='btn btn-sm rounded-pill btn-primary'>Compelted</a>";
+                                            }
+                                           else{
+                                            $seen="<a href='?missed=$row[id]' class='btn btn-sm rounded-pill btn-danger mt-2'>Missed</a>";
+                                           }                                          
 
                                             echo"
                                                 <tr>
                                                     <td>$i</td>
-                                                    <td>$row[name]</td>
-                                                    <td>$row[email]</td>
-                                                    <td>$row[dr_password]</td>
-                                                    <td>$row[contact]</td>
                                                     <td>$row[date]</td>
+                                                    <td>$row[time]</td>
+                                                    <td>$row2[userName]</td>
+                                                    <td>$row2[phoneNumber]</td>
                                                     <td><span style='width:120px'>$seen</span></td>
                                                 </tr>
                                             ";
