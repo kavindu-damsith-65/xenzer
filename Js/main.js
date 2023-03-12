@@ -161,7 +161,7 @@ function enterUserData(userData,enterdata){
         url:"admin/Inc/dataEnter.php",  
         data:{user:userData,enterData:enterdata},  
         success:function(Data){ 
-            alert(Data);
+            // alert(Data);
             if(Data=="succeed"){
                 window.location.href ="index.php";
             }else{

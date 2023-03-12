@@ -16,7 +16,7 @@
             Company
             </h6>
             <p>
-              <a href="about.php" style="color:rgba(0,0,0,.7); text-decoration: none;">About Us</a>
+              <a href="contact-us.php" style="color:rgba(0,0,0,.7); text-decoration: none;">Contact US</a>
             </p>
             <p>
               <a style="color:rgba(0,0,0,.7);">Our Services</a>
@@ -37,18 +37,7 @@
             <p>
               <a style="color:rgba(0,0,0,.7);">FAQ</a>
             </p>
-            <p>
-              <a style="color:rgba(0,0,0,.7);">Shipping</a>
-            </p>
-            <p>
-              <a style="color:rgba(0,0,0,.7);">Returns</a>
-            </p>
-            <p>
-              <a style="color:rgba(0,0,0,.7);">Order status</a>
-            </p>
-            <p>
-              <a style="color:rgba(0,0,0,.7);">Payment options</a>
-            </p>
+           
           </div>
           <!-- Grid column -->
 
