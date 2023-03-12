@@ -1,0 +1,6 @@
+Add this file to server / database name that we used is 'xenzer3'
+
+    $hname = 'localhost';
+    $uname = 'root';
+    $pass = '';
+    $db = 'xenzer3';
