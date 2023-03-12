@@ -41,7 +41,7 @@ drLogin();
                     <!-- <form  > -->
                     <div class="modal-header">
                         <h5 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
-                            <i class="fa fa-user-md fs-3 me-2"></i>ADD A DOCTOR
+                            <i class="fa fa-user-md fs-3 me-2"></i>ADD A REPORT
                         </h5>
                     
                     </div>
@@ -49,33 +49,26 @@ drLogin();
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6 ps-0 mb-3">
-                                    <label class="form-label">Name</label>
+                                    <label class="form-label">Name of the Patient</label>
                                     <input type="text" id="userName" class="form-control shadow-none">
                                 </div>
                                 <div class="col-md-6 p-0">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" id="email" class="form-control shadow-none">
+                                    <label class="form-label">Date</label>
+                                    <input type="date" id="email" class="form-control shadow-none">
                                 </div>
                                 <div class="col-md-6 ps-0 mb-3">
                                     <label class="form-label">Phone Number</label>
                                     <input id="phoneNumber" type="number" class="form-control shadow-none">
                                 </div>
                                 <div class="col-md-6 p-0 mb-3">
-                                    <label class="form-label">Picture</label>
+                                    <label class="form-label">Image of the Report</label>
                                     <input id="picture" type="file" class="form-control shadow-none">
                                 </div>
                                 <div class="col-md-6 ps-0 mb-3">
-                                    <label class="form-label">Password</label>
+                                    <label class="form-label">Description</label>
                                     <label id="passwordLabel" class="form-label"
-                                        style="font-size: 9px;color:red; "></label>
-                                    <!-- <input type="password" id="password" class="form-control shadow-none"> -->
-                                    <input type="password" id="password" class="form-control shadow-none">
-                                </div>
-                                <div class="col-md-6 p-0 mb-3">
-                                    <label class="form-label">Confirm password</label>
-                                    <label id="passConformLabel" class="form-label"
-                                        style="font-size: 9px;color:red; "></label>
-                                    <input type="password" id="passConform" class="form-control shadow-none">
+                                        style="font-size: 9px; color:red"></label>
+                                    <input type="text" id="password" class="form-control shadow-none">
                                 </div>
                                 
 
@@ -84,7 +77,7 @@ drLogin();
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                             <button type="submit" class=" btn btn-primary shadow-none" onclick="submitData();">
-                                Add
+                                Submit
                             </button>
                     </div>
                     <!-- </form> -->

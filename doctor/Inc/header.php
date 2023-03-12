@@ -64,7 +64,7 @@
                         //     $roomCount+=mysqli_num_rows($users);
                         // }
                     ?>
-                    <a class="nav-link text-white" href="addDoctor.php">Add a Doctor</a>
+                    <a class="nav-link text-white" href="addReport.php">Add a Report</a>
                 </li>
             </ul>
 

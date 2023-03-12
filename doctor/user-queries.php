@@ -15,8 +15,7 @@
                 if($unread['seen'] == 0){
                     $que = "UPDATE user_queries SET seen=1 WHERE id='$id'";
                     $unread_all_update = mysqli_query($con,$que);
-                    echo '<h2>Completed</h2>';
-                    // alert('success','Marked as read all');
+                    alert('success','Marked as read all');
                 }
             }
             redirect('user-queries.php');
@@ -24,10 +23,10 @@
         }
         else{
             $q = "UPDATE `appointment` SET `seen`=? WHERE `id`=?";
-            $values = [1,$frm_data['seen']];
+            $values = [1, $frm_data['seen']];
 
             if(update($q,$values,'ii')){
-                alert('success','Marked as read');
+                alert('success','Missed Appointment');
             }
             else{
                 alert('error','Operation Failed!');
@@ -51,18 +50,28 @@
             }
         }
         else{
-            $values = [$frm_data['del']];
-            $a = $values['0'];
-            $q = "DELETE FROM appointment WHERE id='$a'";
-            $del = mysqli_query($con,$q);
-            
+            $q = "UPDATE `appointment` SET `seen`=? WHERE `id`=?";
+            $values = [0, $frm_data['seen']];
 
-            if(!$del){
-                alert('error','Operation Failed');               
+            if(update($q,$values,'ii')){
+                alert('success','Completed Appointment');
             }
             else{
-                alert('success','Data deleted!');
+                alert('error','Operation Failed!');
             }
+
+            // $values = [$frm_data['del']];
+            // $a = $values['0'];
+            // $q = "DELETE FROM appointment WHERE id='$a'";
+            // $del = mysqli_query($con,$q);
+            
+
+            // if(!$del){
+            //     alert('error','Operation Failed');               
+            // }
+            // else{
+            //     alert('success','Data deleted!');
+            // }
         }
     }
 ?>
@@ -122,12 +131,19 @@
                                             $row2 = mysqli_fetch_assoc($user_data);
                                             $seen='';
 
-                                            if($row['seen'] != 1){
-                                                $seen = "<a href='?seen=$row[id]' class='btn btn-sm rounded-pill btn-primary'>Compelted</a>";
-                                            }
-                                           else{
-                                            $seen="<a href='?missed=$row[id]' class='btn btn-sm rounded-pill btn-danger mt-2'>Missed</a>";
-                                           }                                          
+                                            $seen1 = "<a href='?seen=$row[id]' class='btn btn-sm rounded-pill btn-primary'>Completed</a>";
+                                            $seen2="<a href='?del=$row[id]' class='btn btn-sm rounded-pill btn-danger mt-2'>Missed</a>";
+
+                                        //     if($row['seen']!=1 | $row['seen']!=0){
+                                        //         $seen1 = "<a href='?seen=$row[id]' class='btn btn-sm rounded-pill btn-primary'>Completed</a>";
+                                        //         $seen2="<a href='?del=$row[id]' class='btn btn-sm rounded-pill btn-danger mt-2'>Missed</a>";
+     
+                                        //     }
+                                        //    else{
+                                        //     $seen1="<a href='?del=$row[id]' class='btn btn-sm rounded-pill btn-danger mt-2'>Missed</a>";
+                                        //     // $seen2="<a href='?del=$row[id]' class='btn btn-sm rounded-pill btn-danger mt-2'></a>";
+                                        //    }  
+
 
                                             echo"
                                                 <tr>
@@ -136,7 +152,7 @@
                                                     <td>$row[time]</td>
                                                     <td>$row2[userName]</td>
                                                     <td>$row2[phoneNumber]</td>
-                                                    <td><span style='width:120px'>$seen</span></td>
+                                                    <td><span style='width:120px'>$seen1<br>$seen2</span></td>
                                                 </tr>
                                             ";
                                             $i++;
@@ -150,10 +166,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
 
         <?php require('Inc/script.php'); ?>
 
