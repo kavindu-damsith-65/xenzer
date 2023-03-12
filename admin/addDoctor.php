@@ -61,8 +61,8 @@ adminLogin();
                                     <input id="phoneNumber" type="number" class="form-control shadow-none">
                                 </div>
                                 <div class="col-md-6 p-0 mb-3">
-                                    <label class="form-label">Picture</label>
-                                    <input id="picture" type="file" class="form-control shadow-none">
+                                    <!-- <label class="form-label">Picture</label>
+                                    <input id="picture" type="file" class="form-control shadow-none"> -->
                                 </div>
                                 <div class="col-md-6 ps-0 mb-3">
                                     <label class="form-label">Password</label>
@@ -71,12 +71,7 @@ adminLogin();
                                     <!-- <input type="password" id="password" class="form-control shadow-none"> -->
                                     <input type="password" id="password" class="form-control shadow-none">
                                 </div>
-                                <div class="col-md-6 p-0 mb-3">
-                                    <label class="form-label">Confirm password</label>
-                                    <label id="passConformLabel" class="form-label"
-                                        style="font-size: 9px;color:red; "></label>
-                                    <input type="password" id="passConform" class="form-control shadow-none">
-                                </div>
+                               
                                 
 
                             </div>
@@ -84,7 +79,7 @@ adminLogin();
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                             <button type="submit" class=" btn btn-primary shadow-none" onclick="submitData();">
-                                Add
+                                Add New
                             </button>
                     </div>
                     <!-- </form> -->
@@ -93,4 +88,5 @@ adminLogin();
             </div>
         </div>
         
-            <script src="js/main.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="js/main.js"></script>
