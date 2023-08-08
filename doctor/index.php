@@ -47,7 +47,7 @@
   <div class="login-form text-center bg-white shadow overflow-none">
     <form method="POST">
 
-      <h4 class="text-white bg-dark py-3"> XENZER <br> DOCTOR LOGIN PANEL</h4>
+      <h4 class="text-white bg-dark py-3"> NeuroScan <br> DOCTOR LOGIN PANEL</h4>
       <div class="p-4">
         <div class="mb-3">
           <input name="dr_name" required type="text" class="form-control shadow-none text-center" placeholder="Doctor Name">

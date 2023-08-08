@@ -23,7 +23,7 @@
             <iframe class="w-100 mb-4" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126762.45837533647!2d80.14577239492183!3d6.851370918698644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253c87cd30f47%3A0x962a24d3843035e1!2sHotel%20Grand%20Mondo%20-%20Luxury%20Banquets!5e0!3m2!1sen!2slk!4v1654782628627!5m2!1sen!2slk"></iframe>
             <h5 class=" fs-0">Address</h5>
             <a href="https://goo.gl/maps/fx47oZ8KWYaNiDRM9" class="d-inline-block text-decoration-none text-dark">
-              <i class="bi bi-geo-alt-fill"></i> XENZER Hotel, No.52, Gota-Go gama, Collombo 07.
+              <i class="bi bi-geo-alt-fill"></i> NeuroScan Hotel, No.52, Gota-Go gama, Collombo 07.
             </a>
             <hr>
 

@@ -127,7 +127,7 @@
          >
       © 2020 Copyright:
       <a style="color:rgba(0,0,0,.7);" href="#"
-         >XENZER.com</a
+         >NeuroScan.com</a
         >
     </div>
     <!-- Copyright -->

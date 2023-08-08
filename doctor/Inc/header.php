@@ -16,7 +16,7 @@
 
         <div
             class="container-fluid bg-dark text-light p-2 d-flex align-items-center justify-content-between sticky-top">
-            <h3 class="mb-0" style="margin-left:10px">XENZER</h3>
+            <h3 class="mb-0" style="margin-left:10px">NeuroScan</h3>
 
             <div class="user-wrapper p-3 d-flex align-items-center justify-content-between sticky-top">
                 <div class="admin-icon" id="navbarSupportedContent">
